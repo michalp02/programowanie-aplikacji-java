@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-	<title>Kalkulator kredytowy</title>
-</h:head>
-<h:body>
 
-	<h1>Kalkulator kredytowy</h1>
+<ui:composition template="/templates/page-template.xhtml">
 
-	<h:form id="bla">
-  		Kwota kredytu: <h:inputText value="#{calcBB.kwota}" /> PLN
-		<br />
-  		Okres kredytowania: <h:inputText value="#{calcBB.okres}" /> mcy
-		<br />
-  		Oprocentowanie nominalne (roczne): <h:inputText value="#{calcBB.oprocentowanie}" />%
-                
-		<br />
-		<h:messages id="msg" />
+	<ui:define name="pageContent">
 
-		<h:commandButton value="Oblicz" action="#{calcBB.calc()}"/>
-		<br />
-		<h:commandButton value="Oblicz (AJAX)" action="#{calcBB.calc_AJAX()}">
-			<f:ajax execute="@form" render="msg" />
-		</h:commandButton>
-		<br />
-		<h:commandLink value="Informacje" action="#{calcBB.info()}" />
-	</h:form>
+		<p:panel header="Kalkulator">
 
-</h:body>
+			<p:messages id="msg" />
+
+			<h:form>
+				<h:panelGrid columns="2" cellpadding="5" styleClass="bottom-space">
+					<p:outputLabel for="kwota" value="Kwota kredytu:" />
+					<p:inputText id="kwota" value="#{calcBB.kwota}" /> PLN
+					<p:outputLabel for="okres" value="Okres kredytowania:" />
+					<p:inputText id="okres" value="#{calcBB.okres}" /> mcy
+					<p:outputLabel for="oprocentowanie" value="Oprocentowanie nominalne (roczne):" />
+					<p:inputText id="oprocentowanie" value="#{calcBB.oprocentowanie}" />%
+					<p:commandButton value="Oblicz" action="#{calcBB.calc()}" update="msg" />
+					<p:commandButton value="Oblicz (AJAX)" action="#{calcBB.calc_AJAX()}" update="msg" />
+					<p:commandLink value="Informacje" action="#{calcBB.info()}" />
+				</h:panelGrid>
+				<h:messages id="msg" />
+			</h:form>
+
+		</p:panel>
+
+	</ui:define>
+
+</ui:composition>
 </html>
