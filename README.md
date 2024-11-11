@@ -5,3 +5,5 @@ https://github.com/michalp02/programowanie-aplikacji-java/tree/lab1
 https://github.com/michalp02/programowanie-aplikacji-java/tree/lab2
 ## Laboratorium 3 (walidacja)
 https://github.com/michalp02/programowanie-aplikacji-java/tree/lab2a
+## Laboratorium 4 (poprawione primefaces)
+https://github.com/michalp02/programowanie-aplikacji-java/tree/lab2b
